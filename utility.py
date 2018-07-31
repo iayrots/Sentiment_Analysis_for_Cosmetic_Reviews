@@ -3,6 +3,10 @@ import re
 from konlpy.tag import Twitter
 twitter = Twitter()
 
+def write_data(filename, s):
+    with open(filename, 'w') as f:
+        f.write(s)
+
 
 def read_data_tab(filename):
     with open(filename, 'r') as f:
@@ -13,7 +17,7 @@ def read_data_tab(filename):
 
 def read_data(filename):
     with open(filename, 'r') as f:
-        data = [[line] for line in f.read().splitlines()]
+        data = [line.split(', ') for line in f.read().splitlines()]
         data = data[1:]
     return data
 
