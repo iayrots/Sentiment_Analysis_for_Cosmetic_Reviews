@@ -34,21 +34,10 @@ def load_pickle(file_name):
 
 
 def tokenize(doc):
-    """
-    Tokenize document with tokens/POS tags pairs.
-    :param doc: Document to tokenize
-    :return: token/POS tags paired document
-    For iterable documents, they should be in iteration.
-    """
     return ['/'.join(t) for t in twitter.pos(doc, norm=True, stem=True)]
 
 
 def remove_pos(docs):
-    """
-    Remove POS tagging from token/POS.
-    :param docs: Document to remove POS tags
-    :return: Document with removed POS. Same result as tokenizing.
-    """
     p = '/([a-zA-Z]+)[+]*([a-zA-Z]*)'
     pos_removed = []
     for s in docs:
